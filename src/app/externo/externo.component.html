@@ -3,6 +3,21 @@
 {{ 'HOLA MUNDO  USANDO PIPES ' | lowercase }}<br/>
 {{ 4 | calculadora: 2 }}
 <hr>
+<h2>Crear Usuario</h2>
+<form #newUser="ngForm" (ngSubmit)="onSubmit(newUser)">
+  <p>
+    <label for="name">Nombre</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="new_user.name" required/>
+    <span *ngIf="name.touched && !name.valid">El Nombre no es valido</span>
+  </p>
+  <p>
+    <label for="job">Trabajo</label>
+    <input type="text" name="job" #name="ngModel" [(ngModel)]="new_user.job" required/>
+    <span *ngIf="job.touched && !job.valid">El valor del trabajo no es valido</span>
+  </p>
+  <input type="submit" value="Crear usuario" [disabled]="!newUser.form.valid">
+</form>
+<hr>
 <input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()"/>
 <div *ngIf="!user">Cargando...</div>
 <div *ngIf="user">
@@ -10,3 +25,4 @@
   <h2>{{user.first_name +' '+ user.last_name}}</h2>
 
 </div>
+<hr>
