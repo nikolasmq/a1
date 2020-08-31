@@ -6,6 +6,7 @@ import { ZapatillaComponent } from './zapatilla/zapatilla.component';
 import { VideojuegoComponent } from './videojuego/videojuego.component';
 import { AutoComponent } from './auto/auto.component';
 import { HomeComponent } from './home/home.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'Auto', component: AutoComponent},
   {path: 'Auto/:nombre/:followers', component: AutoComponent},
   {path: 'externo', component: ExternoComponent},
+  {path: 'contacto', component: ContactoComponent},
   {path: '**', component: HomeComponent}
 ];
 
