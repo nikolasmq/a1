@@ -13,10 +13,15 @@
   <p>
     <label for="job">Trabajo</label>
     <input type="text" name="job" #name="ngModel" [(ngModel)]="new_user.job" required/>
-    <span *ngIf="job.touched && !job.valid">El valor del trabajo no es valido</span>
+    <!-- <span *ngIf="job.touched && !job.valid">El valor del trabajo no es valido</span> -->
   </p>
   <input type="submit" value="Crear usuario" [disabled]="!newUser.form.valid">
 </form>
+<div *ngIf="usuario_creado">
+  <h2>El usuario se ha creado exitosamente</h2>
+  <h3>{{usuario_creado.name}}</h3><br>
+  <h3>{{usuario_creado.job}}</h3>
+</div>
 <hr>
 <input type="text" [(ngModel)]="userId" (keyup.enter)="cargaUsuario()"/>
 <div *ngIf="!user">Cargando...</div>
